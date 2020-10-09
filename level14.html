@@ -1,0 +1,127 @@
+<html>
+    <body>
+        <canvas id="canvas" width="800" height="600"></canvas>
+        <script src="./robot-arm.js"></script>
+        <script>
+            // Robotarm bibliotheek inladen
+            var canvas = document.getElementById("canvas");
+            var robotArm = new RobotArm(canvas);
+            
+            // Het level inladen
+            robotArm.randomLevel( 5, 10);
+            
+            // Jou instructies volgen hier
+            robotArm.speed = 100;
+            var kleur1 = 0
+            var kleur2 = 0
+            var kleur3 = 0
+            var kleur4 = 0
+            var a = 9
+            var b = 8
+            var c = 7
+            var d = 6
+            var rij1 = "x"
+            while(rij != "klaar"){
+                robotArm.grab();
+                color = robotArm.scan();
+                if(color == kleur1){
+                    for (var z = 1 ; z <= a; z++){
+                        robotArm.moveRight();
+                    }
+                    robotArm.drop();
+                    for (var z = 1 ; z <= a; z++){
+                        robotArm.moveLeft();
+                    }
+                }
+                else if(color == kleur2){
+                    for (var z = 1 ; z <= b; z++){
+                        robotArm.moveRight();
+                    }
+                    robotArm.drop();
+                    for (var z = 1 ; z <= b; z++){
+                        robotArm.moveLeft();
+                    }
+                }
+                else if(color == kleur3){
+                    for (var z = 1 ; z <= c; z++){
+                        robotArm.moveRight();
+                    }
+                    robotArm.drop();
+                    for (var z = 1 ; z <= c; z++){
+                        robotArm.moveLeft();
+                    }
+                }
+                else if(color == kleur4){
+                    for (var z = 1 ; z <= d; z++){
+                        robotArm.moveRight();
+                    }
+                    robotArm.drop();
+                    for (var z = 1 ; z <= d; z++){
+                        robotArm.moveLeft();
+                    }
+                }
+                else if (color !=null){
+                    if(kleur1 == 0){
+                        var kleur1 = color
+                        for (var z = 1 ; z <= a; z++){
+                        robotArm.moveRight();
+                        }
+                        robotArm.drop();
+                        for (var z = 1 ; z <= a; z++){
+                            robotArm.moveLeft();
+                        }
+                    }
+                    else if(kleur2 == 0){
+                        var kleur2 = color
+                        for (var z = 1 ; z <= b; z++){
+                        robotArm.moveRight();
+                        }
+                        robotArm.drop();
+                        for (var z = 1 ; z <= b; z++){
+                            robotArm.moveLeft();
+                        }
+                    }
+                    else if(kleur3 == 0){
+                        var kleur3 = color
+                        for (var z = 1 ; z <= c; z++){
+                        robotArm.moveRight();
+                        }
+                        robotArm.drop();
+                        for (var z = 1 ; z <= c; z++){
+                            robotArm.moveLeft();
+                        }
+                    }                    
+                    else if(kleur4 == 0){
+                        var kleur4 = color
+                        for (var z = 1 ; z <= d; z++){
+                        robotArm.moveRight();
+                        }
+                        robotArm.drop();
+                        for (var z = 1 ; z <= d; z++){
+                            robotArm.moveLeft();
+                        }
+                    }
+                }
+                else{
+                    if(a == 5){
+                        var rij = "klaar"
+                    }
+                    else{
+                    robotArm.moveRight();
+                    var a = a - 1
+                    var b = b - 1
+                    var c = c - 1
+                    var d = d - 1
+                    }
+                }
+            }
+
+                   
+
+
+            // De door jou opgegeven instructies uitvoeren
+            robotArm.run();
+                
+        </script>
+    </body>
+</html>
